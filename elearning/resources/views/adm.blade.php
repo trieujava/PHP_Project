@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <h1>đây là trang chủ</h1>
+    <h1>Đây là adm</h1>
+    <a href="{{route("logout")}}">Đăng xuất
 </body>
 
 </html>

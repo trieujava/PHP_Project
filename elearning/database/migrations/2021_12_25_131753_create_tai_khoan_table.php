@@ -16,11 +16,12 @@ class CreateTaiKhoanTable extends Migration
         Schema::create('tai_khoan', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('email'); 
-            $table->string('ten_tai_khoan');
-            $table->string('mat_khau');
+            $table->string('username');
+            $table->string('password');
             $table->dateTime('ngay_tao');
-            $table->boolean('tinh_trang');  
+            $table->boolean('tinh_trang'); 
             $table->timestamps();
+            $table->rememberToken('');
         });
     }
 

@@ -28,21 +28,42 @@
 						<form action="{{route("postlogin")}}" method="post">
 							@csrf
 							<div class="form-sub-w3">
-								<input type="text" name="Username" placeholder="Username " required="" />
+								<input type="text" name="username" placeholder="Username" />
 								<div class="icon-w3">
 									<i class="fa fa-user" aria-hidden="true"></i>
 								</div>
+								<!-- @if ($errors->any())
+								<div class="alert alert-danger" style="color: white;">
+									<ul>
+										@foreach ($errors->all() as $error)
+										<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+								@endif -->
 							</div>
 
 							<div class="form-sub-w3">
-								<input type="password" name="Password" placeholder="Password" required="" />
+								<input type="password" name="password" placeholder="Password" />
 								<div class="icon-w3">
 									<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 								</div>
+								<!-- @if ($errors->any())
+								<div class="alert alert-danger" style="color: white;">
+									<ul>
+										@foreach ($errors->all() as $error)
+										<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+								@endif -->
 							</div>
 
-							<div row align-items-center remember>
-								<input type="checkbox" name="remember">Remember Me
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" name="remember">
+								<label class="form-check-label" style="color: white;font-size:15px;">
+									Ghi Nhớ
+								</label>
 							</div>
 							<p class=" p-bottom-w3ls">Forgot Password?<a class href="forgot-password.html"> Click here</a></p>
 							<p class="p-bottom-w3ls1">New User?<a class href="register.html"> Register here</a></p>

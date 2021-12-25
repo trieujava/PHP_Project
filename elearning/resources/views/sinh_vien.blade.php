@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Giảng viên kính chào</h1>
+    <h1>đây là sinh viên</h1>
     <a href="{{route("logout")}}">Đăng xuất
 </body>
 

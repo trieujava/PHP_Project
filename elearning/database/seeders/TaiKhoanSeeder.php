@@ -17,22 +17,18 @@ class TaiKhoanSeeder extends Seeder
      */
     public function run()
     {
-        $tk =new TaiKhoan();
-        $tk->email='admin@gmail.com';
-        $tk->ten_tai_khoan='admin';
-        // $tk->mat_khau=Hash::make('123456');
-        $tk->mat_khau=('123456');
-        $tk->ngay_tao='2001/12/23';
-        $tk->tinh_trang='1';
+        $tk = new TaiKhoan();
+        // $tk->email = 'admin@gmail.com';
+        $tk->email = 'sv@gmail.com';
+        // $tk->email = 'giangvien@gmail.com';
+        // $tk->username = 'admin';
+        $tk->username = 'sinhvien';
+        // $tk->username = 'giangvien';
+        $tk->password = Hash::make('123456');
+        $tk->ngay_tao = '2001/12/23';
+        // $tk->tinh_trang = '1';
+        // $tk->tinh_trang = '0';
+        $tk->tinh_trang = '2';
         $tk->save();
-        // DB::table('tai_khoan')->insert(
-        //     [
-        //         'email' => 'admin@gmail.com',
-        //         'ten_tai_khoan' => 'admin',
-        //         'mat_khau' => Hash::make('123456'),
-        //         'ngay_tao' => 21 / 12 / 2021,
-        //         'tinh_trang' => 1
-        //     ]
-        // );
     }
 }
