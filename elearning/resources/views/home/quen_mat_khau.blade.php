@@ -15,7 +15,7 @@
         <div class="card">
             <div class="card-header bg-info"> QUÊN MẬT KHẨU</div>
             <div class="card-body">
-                <form class="form-horizontal" method="GET" action="{{route("gui_mail")}}">
+                <form class="form-horizontal" action="{{route("gui_mail")}}">
                     <!-- @csrf
                     @if(session('error'))
                     <div>

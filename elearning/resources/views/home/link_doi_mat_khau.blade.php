@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <h1>Vui lòng ấn đường link sau để tạo mật khẩu mới</h1>
+    <h2>Vui lòng ấn đường link sau để tạo mật khẩu mới</h2>
+
     <a href="{{route("mat_khau_moi")}}">Ấn vào
 </body>
 

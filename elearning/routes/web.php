@@ -16,17 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dang_nhap');
+    return view('home.dang_nhap');
 });
-Route::get('/login', [HomePageController::class, 'getLogin'])->name('dang_nhap');
-Route::post('/login', [HomePageController::class, 'postLogin'])->name('post_dang_nhap');
-// Route::get('/dangki', [LoginController::class, 'getdangki'])->name('dangki');
-// Route::post('/dangki', [LoginController::class, 'postDangki'])->name('postlangki');
+Route::get('/dang-nhap', [HomePageController::class, 'getLogin'])->name('dang_nhap');
+Route::post('/dang-nhap', [HomePageController::class, 'postLogin'])->name('post_dang_nhap');
 
-Route::get('/logout', [HomePageController::class, 'getLogout'])->name('dang_xuat');
+Route::get('/dang-ki', [HomePageController::class, 'getdangki'])->name('dang_ki');
+Route::post('/dang-ki', [HomePageController::class, 'postDangki'])->name('post_dang_ki');
+
+Route::get('/dang-xuat', [HomePageController::class, 'getLogout'])->name('dang_xuat');
 
 
-Route::get('/fogot_password', [HomePageController::class, 'fogot'])->name('quen_mat_khau');
-Route::get('/reset_password', [HomePageController::class, 'getreset'])->name('gui_mail');
+Route::get('/quen-mat-khau', [HomePageController::class, 'fogot'])->name('quen_mat_khau');
+Route::get('/reset-mat-khau', [HomePageController::class, 'getreset'])->name('gui_mail');
 
-Route::get('/passnew', [HomePageController::class, 'passnew'])->name('mat_khau_moi');
+Route::get('/mat-khau-moi', [HomePageController::class, 'passnew'])->name('mat_khau_moi');

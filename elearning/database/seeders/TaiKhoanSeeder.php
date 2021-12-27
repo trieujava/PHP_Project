@@ -19,16 +19,15 @@ class TaiKhoanSeeder extends Seeder
     {
         $tk = new TaiKhoan();
         // $tk->email = 'admin@gmail.com';
-        $tk->email = '0306191473@caothang.edu.vn';
-        // $tk->email = 'giangvien@gmail.com';
+        // $tk->email = '0306191473@caothang.edu.vn';
+        $tk->email = 'giangvien@gmail.com';
         // $tk->username = 'admin';
-        $tk->username = 'sinhvien';
-        // $tk->username = 'giangvien';
+        // $tk->username = 'sinhvien';
+        $tk->username = 'giangvien';
         $tk->password = Hash::make('123456');
-        $tk->ngay_tao = '2001/12/23';
-        // $tk->tinh_trang = '1';
+        $tk->tinh_trang = '1';
         // $tk->tinh_trang = '0';
-        $tk->tinh_trang = '2';
+        // $tk->tinh_trang = '2';
         $tk->save();
     }
 }

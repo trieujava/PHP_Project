@@ -54,7 +54,8 @@
 								</label>
 							</div>
 							<p class=" p-bottom-w3ls">Forgot Password?<a class href="{{route("quen_mat_khau")}}"> Click here</a></p>
-							<p class="p-bottom-w3ls1">New User?<a class href="register.html"> Register here</a></p>
+							<p class=" p-bottom-w3ls1">New User?<a class href="{{route("dang_ki")}}"> Register here</a></p>
+							<!-- {{route("dang_ki")}} -->
 							<div class="clear"></div>
 							<div class="submit-w3l">
 								<input type="submit" value="Login">
@@ -65,7 +66,7 @@
 					<!--//form-ends-here-->
 				</div><!-- copyright -->
 				<div class="copyright w3-agile">
-					<p> © 2017 Clean Login Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+					<p> Welcome to<a href="#" target="_blank"> Elearning</a></p>
 				</div>
 				<!-- //copyright -->
 			</div>

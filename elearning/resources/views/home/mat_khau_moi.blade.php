@@ -12,7 +12,7 @@
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="#" method="post">
-                <h2>Tạo lại mật khẩu mới</h2>
+                <h2>Mật khẩu mới</h2>
                 <input type="password" placeholder="Mật khẩu" />
                 <input type="password" placeholder="Nhập lại password" />
                 <button type="submit">Hoàn thành</button>
