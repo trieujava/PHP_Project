@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h1>Giảng viên kính chào</h1>
-    <a href="{{route("dang_xuat")}}">Đăng xuất
+    <h1>Vui lòng ấn đường link sau để tạo mật khẩu mới</h1>
+    <a href="{{route("mat_khau_moi")}}">Ấn vào
 </body>
 
 </html>

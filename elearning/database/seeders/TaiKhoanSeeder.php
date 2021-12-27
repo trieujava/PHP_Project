@@ -19,7 +19,7 @@ class TaiKhoanSeeder extends Seeder
     {
         $tk = new TaiKhoan();
         // $tk->email = 'admin@gmail.com';
-        $tk->email = 'sv@gmail.com';
+        $tk->email = '0306191473@caothang.edu.vn';
         // $tk->email = 'giangvien@gmail.com';
         // $tk->username = 'admin';
         $tk->username = 'sinhvien';

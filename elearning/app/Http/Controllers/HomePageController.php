@@ -7,12 +7,15 @@ use App\Models\TaiKhoan;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use Cartalyst\Sentinel\Laravel\Facades\Reminder;
 
-class LoginController extends Controller
+class HomePageController extends Controller
 {
     public function getLogin()
     {
-        return view('login');
+        return view('dang_nhap');
     }
     public function postLogin(Request $request)
     {
@@ -42,21 +45,37 @@ class LoginController extends Controller
                 return view('adm');
             }
         } else {
-            return view('login');
+            return view('dang_nhap');
             // return redirect()->route('login');
         }
     }
     public function getLogout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('dang_nhap');
     }
-    public function dangki()
-    {
-        return view('register');
-    }
+    // public function dangki()
+    // {
+    //     return view('register');
+    // }
     // public  function postlangki()
     // {
 
     // }
+    public function fogot()
+    {
+        return view('quen_mat_khau');
+    }
+    public function getreset()
+    {
+        $name = 'Doi mat khau';
+        Mail::send('link_doi_mat_khau', compact('name'), function ($email) {
+            $email->to('0306191473@caothang.edu.vn', 'ahihihi');
+        });
+    }
+
+    public function passnew()
+    {
+        return view('mat_khau_moi');
+    }
 }

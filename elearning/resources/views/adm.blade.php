@@ -10,7 +10,7 @@
 
 <body>
     <h1>Đây là adm</h1>
-    <a href="{{route("logout")}}">Đăng xuất
+    <a href="{{route("dang_xuat")}}">Đăng xuất
 </body>
 
 </html>
