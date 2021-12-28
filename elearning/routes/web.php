@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use  App\Http\Controllers\SinhVienController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
-});
+    return view('page.index');
+})->name('trangchu');
+Route::get('/sinh-vien', [SinhVienController::class,'layDanhSach']);
+Route::post('/sinh-vien/them_moi', [SinhVienController::class,'themMoi'])->name('xu-ly-them-moi');
+
+//Form Login
+
+Route::get('/login' , function () {return view('login');})->name('login');
+
+//Admin
+Route::get('/admin', function () {return view('page.admin');})->name('admin');
+Route::get('/admin/quanlysinhvien', function () {return view('page.quanlyhethong');})->name('quanlyhethong');
+Route::get('/admin/quanlygiaovien', function () {return view('page.quanlygiaovien');})->name('quanlygiaovien');
+Route::get('/admin/danhsachlophoc', function () {return view('page.dslophoc');})->name('dslophoc');
+
+//Giảng Viên
+Route::get('/giangvien/quanlysinhvien', function () {return view('page.quanlysinhvien');})->name('quanlysinhvien');
+Route::get('/giangvien', function () {return view('page.giangvien');})->name('giangvien');
+
+//SinhVien
+Route::get('/sinhvien', function () {return view('page.sinhvien');})->name('sinhvien');
+Route::get('/sinhvien/chitietlophoc', function () {return view('page.chitietlophoc');})->name('chitietlophoc');
