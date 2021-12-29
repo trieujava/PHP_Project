@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('trangchu')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('trangchu')}}">
                     <i class="fa fa-home fa-fw"></i>
                     <span>Trang chủ</span></a>
             </li>
@@ -68,9 +68,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                        
                        
-                        <a class="collapse-item active" href="dslophoc.html">Danh sách lớp học</a>
-                        <a class="collapse-item active" href="quanlyhethong.html">Quản lý sinh viên</a>
-                        <a class="collapse-item active" href="quanlygiaovien.html">Quản lý giảng viên</a>
+                        <a class="collapse-item active" href="{{route('dslophoc')}}">Danh sách lớp học</a>
+                        <a class="collapse-item active" href="{{route('quanlyhethong')}}">Quản lý sinh viên</a>
+                        <a class="collapse-item active" href="{{route('quanlygiaovien')}}">Quản lý giảng viên</a>
                     </div>
                 </div>
             </li>

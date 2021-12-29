@@ -25,14 +25,14 @@ Route::get('/login' , function () {return view('login');})->name('login');
 
 //Admin
 Route::get('/admin', function () {return view('page.admin');})->name('admin');
-Route::get('/admin/quanlysinhvien', function () {return view('page.quanlyhethong');})->name('quanlyhethong');
-Route::get('/admin/quanlygiaovien', function () {return view('page.quanlygiaovien');})->name('quanlygiaovien');
-Route::get('/admin/danhsachlophoc', function () {return view('page.dslophoc');})->name('dslophoc');
+Route::get('/quanlysinhvien-admin', function () {return view('page.quanlyhethong');})->name('quanlyhethong');
+Route::get('/quanlygiaovien', function () {return view('page.quanlygiaovien');})->name('quanlygiaovien');
+Route::get('/danhsachlophoc', function () {return view('page.dslophoc');})->name('dslophoc');
 
 //Giảng Viên
-Route::get('/giangvien/quanlysinhvien', function () {return view('page.quanlysinhvien');})->name('quanlysinhvien');
+Route::get('/quanlysinhvien', function () {return view('page.quanlysinhvien');})->name('quanlysinhvien');
 Route::get('/giangvien', function () {return view('page.giangvien');})->name('giangvien');
 
 //SinhVien
 Route::get('/sinhvien', function () {return view('page.sinhvien');})->name('sinhvien');
-Route::get('/sinhvien/chitietlophoc', function () {return view('page.chitietlophoc');})->name('chitietlophoc');
+Route::get('/chitietlophoc', function () {return view('page.chitietlophoc');})->name('chitietlophoc');

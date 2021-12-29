@@ -40,7 +40,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route}}">
+                <a class="nav-link" href="{{route('trangchu')}}">
                     <i class="fa fa-home fa-fw"></i>
                     <span>Trang chủ</span></a>
             </li>

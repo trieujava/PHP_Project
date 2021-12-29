@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                <!-- Sidebar - Brand -->
-               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('trangchu')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('trangchu')}}">
                     <i class="fa fa-home fa-fw"></i>
                     <span>Trang chủ</span></a>
             </li>
@@ -319,7 +319,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                           <a href="chitietlophoc.html">
+                                           <a href="{{route('chitietlophoc')}}">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Lớp Lập Trình Di Động</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Tien Lu Cao</div>
