@@ -46,6 +46,8 @@
                     <i class="fa fa-home fa-fw"></i>
                     <span>Trang chủ</span>
                 </a>
+                  <!-- Divider -->
+        
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
@@ -59,7 +61,13 @@
                     </div>
                 </div>
             </li>
+              <!-- Divider -->
+              <hr class="sidebar-divider">
 
+              <!-- Heading -->
+              <div class="sidebar-heading">
+                Quản Lý
+              </div>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
