@@ -20,7 +20,7 @@
 	<div class="container demo-1">
 		<div class="content">
 			<div id="large-header" class="large-header">
-				<h1>Login Form</h1>
+				<h1>Elearning</h1>
 				<div class="main-agileits">
 					<!--form-stars-here-->
 					<div class="form-w3-agile">
@@ -40,7 +40,7 @@
 							<div class="form-sub-w3">
 								<input type="password" name="password" placeholder="Password" />
 								<!-- <div class="icon-w3">
-									<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+									<i class="fa fa-user" aria-hidden="true"></i>
 								</div> -->
 								@error('password')
 								<div class="alert alert-danger" style="color: white;">{{ $message }}</div>
@@ -55,7 +55,7 @@
 							</div>
 							<p class=" p-bottom-w3ls">Forgot Password?<a class href="{{route("quen_mat_khau")}}"> Click here</a></p>
 							<p class=" p-bottom-w3ls1">New User?<a class href="{{route("dang_ki")}}"> Register here</a></p>
-							<!-- {{route("dang_ki")}} -->
+
 							<div class="clear"></div>
 							<div class="submit-w3l">
 								<input type="submit" value="Login">

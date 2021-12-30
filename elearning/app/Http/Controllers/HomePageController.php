@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class HomePageController extends Controller
 {
+    //đăng nhập
     public function getLogin()
     {
         return view('home.dang_nhap');
@@ -47,32 +48,73 @@ class HomePageController extends Controller
             // return redirect()->route('login');
         }
     }
+
+    //đăng xuất
     public function getLogout()
     {
         Auth::logout();
         return redirect()->route('dang_nhap');
     }
+
+    //quên mật khẩu
     public function fogot()
     {
         return view('home.quen_mat_khau');
     }
+
     public function getreset(Request $request)
     {
+        $request->validate(
+            [
+                'email' => 'required|email',
+            ],
+            [
+                'email.required' =>  "Bạn chưa nhập email ",
+                'email.email' =>  "Định dạnh email không đúng ",
+            ]
+        );
         $user = TaiKhoan::where('email', $request->email)->first();
         if (empty($user) || $user->email != $request->email) {
-            $title = "Email không tồn tại";
-            return view("home.quen_mat_khau", compact("title"));
+            // return view('home.quen_mat_khau');
+            return redirect()->route('quen_mat_khau')->with('title', 'Email không có trong bảng');
         }
-        $name = 'Doi mat khau';
-        Mail::send('home.link_doi_mat_khau', compact('name'), function ($email) {
-            $email->to('0306191473@caothang.edu.vn', 'He Thong');
+        Mail::send('home.link_doi_mat_khau', compact('user'), function ($email) use ($user) {
+            $email->to($user->email, $user->username);
             $email->subject('Elearning-Đổi mật khẩu');
+            return redirect()->route('quen_mat_khau')->with('title', 'Email không có trong bảng');
         });
     }
-    public function passnew()
+    public function passnew($id)
     {
-        return view('home.mat_khau_moi');
+        $user = TaiKhoan::find($id);
+        return view('home.mat_khau_moi', compact('user'));
     }
+    public function reset_passnew(Request $request, $id)
+    {
+        $request->validate(
+            [
+                'password' => 'required|min:3|max:32',
+                'passwordagain' => 'required|same:password',
+            ],
+            [
+                'password.min' =>  'Mật khẩu phải có ít nhất 3 kí tự',
+                'password.max' =>  'Mật khẩu chỉ được tối đa 30 kí tự',
+                'password.required' =>  "Bạn chưa nhập mật khẩu ",
+                'passwordagain.same' =>  'Mật khẩu không trùng khớp',
+                'passwordagain.required' =>  "Bạn chưa nhập mật khẩu ",
+
+            ]
+        );
+        $user = TaiKhoan::find($id);
+        if ($request->password != $request->passwordagain) {
+            return view('home.mat_khau_moi');
+        } else {
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->route('tao_mat_khau_moi', ['id' => $user->id])->with('title', 'Cập nhật thành công');
+        }
+    }
+    //đăng kí
     public function getdangki()
     {
         return view('home.dang_ki');
@@ -100,12 +142,11 @@ class HomePageController extends Controller
             ]
         );
         $tk = new TaiKhoan();
-
         $tk->username = $request->username;
         $tk->email = $request->email;
         $tk->password = Hash::make($request->password);
         $tk->tinh_trang = 2;
         $tk->save();
-        return redirect()->route('dang_nhap')->with('thongbao', 'Chúc mừng bạn đã đăng kí thành công');
+        return redirect()->route('dang_ki')->with('thongbao', 'Chúc mừng bạn đã đăng kí thành công');
     }
 }

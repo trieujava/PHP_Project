@@ -22,7 +22,12 @@
             <form action="{{route("post_dang_ki")}}" method="post">
                 @csrf
                 <h1>Đăng kí</h1>
-                <input type="text" placeholder="Tên" name="username" />
+                @if(session('thongbao'))
+                <div class="alert alert-success" style="font-size: 14px;color:grey">
+                    {{session('thongbao')}}
+                </div>
+                @endif
+                <input type="text" placeholder="Tài khoản" name="username" />
                 @error('username')
                 <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
                 @enderror

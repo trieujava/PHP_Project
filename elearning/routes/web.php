@@ -26,8 +26,7 @@ Route::post('/dang-ki', [HomePageController::class, 'postDangki'])->name('post_d
 
 Route::get('/dang-xuat', [HomePageController::class, 'getLogout'])->name('dang_xuat');
 
-
 Route::get('/quen-mat-khau', [HomePageController::class, 'fogot'])->name('quen_mat_khau');
-Route::get('/reset-mat-khau', [HomePageController::class, 'getreset'])->name('gui_mail');
-
-Route::get('/mat-khau-moi', [HomePageController::class, 'passnew'])->name('mat_khau_moi');
+Route::post('/quen-mat-khau', [HomePageController::class, 'getreset'])->name('xl_mat_khau');
+Route::get('/mat-khau-moi/{id}', [HomePageController::class, 'passnew'])->name('mat_khau_moi');
+Route::post('/mat-khau-moi/{id}', [HomePageController::class, 'reset_passnew'])->name('tao_mat_khau_moi');

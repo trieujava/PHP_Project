@@ -24,7 +24,6 @@ ol, ul {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
-	
 }
 
 blockquote, q {
@@ -147,7 +146,8 @@ input:-ms-input-placeholder {
 }
 
 .demo-1 .large-header {
-	background-image: url('../images/banner.jpg');
+	/* background-image: url('../images/banner.jpg'); */
+	background-image: linear-gradient(120deg, #3ca7ee, #9b408f);
 	background-position: center bottom;
 }
 

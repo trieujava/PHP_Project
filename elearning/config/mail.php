@@ -91,9 +91,10 @@ return [
     |
     */
 
+
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', '0306191473@caothang.edu.vn'),
-        'name' => env('MAIL_FROM_NAME', 'ADM'),
+        'name' => env('MAIL_FROM_NAME', 'Laravel'),
     ],
 
     /*

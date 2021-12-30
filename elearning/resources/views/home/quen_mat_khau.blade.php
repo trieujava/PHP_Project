@@ -15,21 +15,16 @@
         <div class="card">
             <div class="card-header bg-info"> QUÊN MẬT KHẨU</div>
             <div class="card-body">
-                <form class="form-horizontal" action="{{route("gui_mail")}}">
-                    <!-- @csrf
-                    @if(session('error'))
-                    <div>
-                        {{session('error')}}
+                <form class="form-horizontal" action="{{route('xl_mat_khau')}}" method="post">
+                    @csrf
+                    @if(session('title'))
+                    <div class="alert alert-success" style="font-size: 14px;color:grey">
+                        {{session('title')}}
                     </div>
-
                     @endif
-
-                    @if(session('success'))
-                    <div>
-                        {{session('success')}}
-                    </div>
-
-                    @endif -->
+                    @error('email')
+                    <div style="color: red;">{{ $message }}</div>
+                    @enderror
                     <p> <label class="control-label ">Email:</label>
                         <input class="form-control" name="email" type="email">
                     </p>
