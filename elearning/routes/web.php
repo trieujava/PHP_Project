@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home.dang_nhap');
+    return view('trang_chu');
 });
+
 Route::get('/dang-nhap', [HomePageController::class, 'getLogin'])->name('dang_nhap');
 Route::post('/dang-nhap', [HomePageController::class, 'postLogin'])->name('post_dang_nhap');
 
