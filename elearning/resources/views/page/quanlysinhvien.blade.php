@@ -323,7 +323,7 @@
             <div class="form-group">
                 <label asp-for="Password" class="control-label">Mật khẩu</label>
                 <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger">Mật khẩu</span>
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label">Email</label>
