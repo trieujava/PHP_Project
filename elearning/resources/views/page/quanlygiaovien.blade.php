@@ -313,7 +313,7 @@
                     </div>
     <!-- Form-->
     <div class="col-md-4">
-    <form method="POST" action="{{route('xu-ly-them-moi')}} ">
+    <form method="" action=" ">
         @csrf
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">

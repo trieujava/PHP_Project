@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('page.index');
 })->name('trangchu');
 Route::get('/sinh-vien', [SinhVienController::class,'layDanhSach']);
-Route::post('/sinh-vien/them_moi', [SinhVienController::class,'themMoi'])->name('xu-ly-them-moi');
+// Route::post('/sinh-vien/them_moi', [SinhVienController::class,'themMoi'])->name('xu-ly-them-moi');
 
 //Form Login
 
