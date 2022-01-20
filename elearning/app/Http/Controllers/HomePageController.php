@@ -34,18 +34,18 @@ class HomePageController extends Controller
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->has('remember'))) {
             $user = TaiKhoan::where('username', $request->username)->first();
             if ($user->tinh_trang == 1) {
-                return view('giang_vien');
-                // return redirect()->route('adm');
+                // return view('giang_vien');
+                return redirect()->route('giangvien');
             } elseif ($user->tinh_trang == 2) {
-                return view('sinh_vien');
-                // return redirect()->route('giang_vien');
+                // return view('sinh_vien');
+                return redirect()->route('sinhvien');
             } elseif ($user->tinh_trang == 0) {
-                // return redirect()->route('sinh_vien');
-                return view('adm');
+                return redirect()->route('adm');
+                // return view('adm');
             }
         } else {
-            return view('home.dang_nhap');
-            // return redirect()->route('login');
+            // return view('home.dang_nhap');
+            return redirect()->route('dang_nhap');
         }
     }
 

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\SinhVienController;
+use App\Http\Controllers\AdmController;
+use App\Http\Controllers\GiangVienController;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\LoginController;
 
@@ -16,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('trang_chu');
-});
+    return view('page.index');
+})->name('trangchu');
 
 Route::get('/dang-nhap', [HomePageController::class, 'getLogin'])->name('dang_nhap');
 Route::post('/dang-nhap', [HomePageController::class, 'postLogin'])->name('post_dang_nhap');
@@ -31,3 +34,18 @@ Route::get('/quen-mat-khau', [HomePageController::class, 'fogot'])->name('quen_m
 Route::post('/quen-mat-khau', [HomePageController::class, 'getreset'])->name('xl_mat_khau');
 Route::get('/mat-khau-moi/{id}', [HomePageController::class, 'passnew'])->name('mat_khau_moi');
 Route::post('/mat-khau-moi/{id}', [HomePageController::class, 'reset_passnew'])->name('tao_mat_khau_moi');
+
+//admin
+Route::get('/adm', [AdmController::class, 'adm'])->name('adm');
+Route::get('/adm/ds-lophoc', [AdmController::class, 'dslophoc'])->name('dslophoc');
+Route::get('/adm/quanli-giaovien', [AdmController::class, 'quanlygiaovien'])->name('qlgiaovien');
+Route::get('/adm/quanli-hethong', [AdmController::class, 'quanlyhethong'])->name('qlhethong');
+
+
+//giang vien
+Route::get('/giang-vien', [GiangVienController::class, 'giangvien'])->name('giangvien');
+Route::get('/giang-vien/quanli-sinhvien', [GiangVienController::class, 'giangvien'])->name('qlsinhvien');
+
+//sinh vien
+Route::get('/sinh-vien', [SinhVienController::class, 'sinhvien'])->name('sinhvien');
+Route::get('/sinh-vien/chitiet-lophoc', [SinhVienController::class, 'chitietlophoc'])->name('chitietlophoc');
