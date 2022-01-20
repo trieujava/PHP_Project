@@ -27,7 +27,15 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
-                <input type="text" placeholder="Tài khoản" name="username" />
+                <input type="text" placeholder="Họ Tên" name="hoten" />
+                @error('hoten')
+                <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
+                @enderror
+                <input type="text" placeholder="SĐT" name="phone" />
+                @error('phone')
+                <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
+                @enderror
+                <input type="text" placeholder="Tài Khoản" name="username" />
                 @error('username')
                 <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
                 @enderror

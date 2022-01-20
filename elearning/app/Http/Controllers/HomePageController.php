@@ -127,10 +127,17 @@ class HomePageController extends Controller
                 'email' => 'required|email|unique:App\Models\TaiKhoan,email',
                 'password' => 'required|min:3|max:32',
                 'passwordagain' => 'required|same:password',
+                'hoten' => 'required|min:3',
+                'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             ],
             [
                 'username.required' =>  'Bạn chưa nhập tên đăng nhập',
                 'username.min' =>  'Tên người dùng phải có ít nhất 3 kí tự',
+                'hoten.required' =>  'Bạn chưa nhập tên họ tên',
+                'hoten.min' =>  'Họ tên phải có ít nhất 3 kí tự',
+                'phone.required' =>  'Bạn chưa nhập SĐT',
+                'phone.min' =>  'Bạn chưa nhập đúng định dạng SĐT',
+                'phone.regex' =>  'SĐT chưa đúng định dạng',
                 'email.required' =>  'Bạn chưa nhập email',
                 'email.email' =>  'Bạn chưa nhập đúng định dạng email',
                 'email.unique' =>  'Email đã tồn tại',
@@ -145,6 +152,9 @@ class HomePageController extends Controller
         $tk->username = $request->username;
         $tk->email = $request->email;
         $tk->password = Hash::make($request->password);
+        $tk->tinh_trang = 2;
+        $tk->ho_ten = $request->hoten;
+        $tk->phone = $request->phone;
         $tk->tinh_trang = 2;
         $tk->save();
         return redirect()->route('dang_ki')->with('thongbao', 'Chúc mừng bạn đã đăng kí thành công');
