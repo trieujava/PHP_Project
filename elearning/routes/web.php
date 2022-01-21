@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('page.index');
 })->name('trangchu');
 
-Route::get('/dang-nhap', [HomePageController::class, 'getLogin'])->name('dang_nhap');
+Route::get('/dang-nhap', [HomePageController::class, 'getLogin'])->name('dang_nhap')->middleware('guest');
 Route::post('/dang-nhap', [HomePageController::class, 'postLogin'])->name('post_dang_nhap');
 
 Route::get('/dang-ki', [HomePageController::class, 'getdangki'])->name('dang_ki');
@@ -36,16 +36,16 @@ Route::get('/mat-khau-moi/{id}', [HomePageController::class, 'passnew'])->name('
 Route::post('/mat-khau-moi/{id}', [HomePageController::class, 'reset_passnew'])->name('tao_mat_khau_moi');
 
 //admin
-Route::get('/adm', [AdmController::class, 'adm'])->name('adm');
+Route::get('/adm', [AdmController::class, 'adm'])->name('adm')->middleware('auth');
 Route::get('/adm/ds-lophoc', [AdmController::class, 'dslophoc'])->name('dslophoc');
 Route::get('/adm/quanli-giaovien', [AdmController::class, 'quanlygiaovien'])->name('qlgiaovien');
 Route::get('/adm/quanli-hethong', [AdmController::class, 'quanlyhethong'])->name('qlhethong');
 
 
 //giang vien
-Route::get('/giang-vien', [GiangVienController::class, 'giangvien'])->name('giangvien');
+Route::get('/giang-vien', [GiangVienController::class, 'giangvien'])->name('giangvien')->middleware('auth');
 Route::get('/giang-vien/quanli-sinhvien', [GiangVienController::class, 'giangvien'])->name('qlsinhvien');
 
 //sinh vien
-Route::get('/sinh-vien', [SinhVienController::class, 'sinhvien'])->name('sinhvien');
+Route::get('/sinh-vien', [SinhVienController::class, 'sinhvien'])->name('sinhvien')->middleware('auth');
 Route::get('/sinh-vien/chitiet-lophoc', [SinhVienController::class, 'chitietlophoc'])->name('chitietlophoc');
