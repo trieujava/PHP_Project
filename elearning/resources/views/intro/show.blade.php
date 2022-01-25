@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,35 +45,13 @@
                     <span>Trang chủ</span></a>
             </li>
 
-            <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-
-            </div>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
-
-                </a>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-
-                </div>
-            </li>
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-
-            <!-- Divider -->
-
-
-            <!-- Heading -->
-
-
         </ul>
-        <!-- End of Sidebar -->
+
+
+
+
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -238,18 +215,14 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->ho_ten}}</span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{route('edit',[auth()->user()->id])}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Cập nhật thông tin cá nhân
-                                </a>
-                                <a class="dropdown-item" href="{{route('edit_matkhau')}}">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Cập nhật mật khẩu
+                                    Thông tin cá nhân
                                 </a>
                                 <a class="dropdown-item" href="{{route('dang_xuat')}}">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -257,128 +230,75 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
 
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="row"></div>
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Lớp Học</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Thông tin cá nhân</h1>
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control " placeholder="Mã lớp..." aria-label="MaLop" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-plus fa-sm"></i>
-                                    </button>
-                                </div>
+                    <!-- Form-->
+                    @if(session('thongbao'))
+                    <div class="alert alert-success" style="font-size: 14px;color:grey">
+                        {{session('thongbao')}}
+                    </div>
+                    @endif
+                    <div class="col-md-4">
+                        <form asp-action="Create" action="{{route('update',[auth()->user()->id])}}" method="post">
+                            @csrf
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label class="control-label">Tài khoản</label>
+                                <input class="form-control" value="{{auth()->user()->username}}" name="username" disabled />
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="name" class="control-label">Họ tên</label>
+                                @error('hoten')
+                                <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
+                                @enderror
+                                <input asp-for="name" class="form-control" value="{{auth()->user()->ho_ten}}" name="hoten" />
+                                <span asp-validation-for="name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="email" class="control-label">Email</label>
+                                @error('email')
+                                <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
+                                @enderror
+                                <input asp-for="email" class="form-control" value="{{auth()->user()->email}}" name="email" />
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="phone" class="control-label">Số điện thoại</label>
+                                @error('phone')
+                                <div class="alert alert-danger" style="color: red;font-size:12px;padding-right: 30px;">{{ $message }}</div>
+                                @enderror
+                                <input asp-for="phone" class="form-control" value="{{auth()->user()->phone}}" name="phone" />
+                                <span asp-validation-for="phone" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input style="margin-top: 10" type="submit" value="Cập nhật" class="btn btn-primary" />
                             </div>
                         </form>
                     </div>
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <a href="{{route('chitietlophoc')}}">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Lớp Lập Trình Di Động</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">Tien Lu Cao</div>
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Annual) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Lập trình PHP nâng cao</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Tuan Thanh Tran</div>
-                                        </div>
-                                        <div class="col-auto">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Tasks Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Kiểm Thử Phần Mềm
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Ngoc Nguyen Thi</div>
-                                                </div>
-                                                <div class="col">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Lập trình ứng dụng web ASP.net core</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Duong Huu Phuoc</div>
-                                        </div>
-                                        <div class="col-auto">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
 
 
-                    <!-- Bootstrap core JavaScript-->
-                    <script src="vendor/jquery/jquery.min.js"></script>
-                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                    <!-- Core plugin JavaScript-->
-                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                    <!-- Custom scripts for all pages-->
-                    <script src="js/sb-admin-2.min.js"></script>
-
+                <!-- Custom scripts for all pages-->
+                <script src="js/sb-admin-2.min.js"></script>
 </body>
 
 </html>

@@ -159,4 +159,5 @@ class HomePageController extends Controller
         $tk->save();
         return redirect()->route('dang_ki')->with('thongbao', 'Chúc mừng bạn đã đăng kí thành công');
     }
+    
 }
